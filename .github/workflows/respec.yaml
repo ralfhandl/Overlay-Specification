@@ -45,7 +45,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v7
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.OAS_REPO_TOKEN }}
         branch: update-overlay-respec-version
         base: gh-pages
         delete-branch: true
