@@ -8,6 +8,7 @@ paths:
     get:
       tags:
         - root
+        - foo
       summary: Retrieve the root resource
       responses:
         '200':

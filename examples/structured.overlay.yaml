@@ -12,10 +12,14 @@ actions:
           summary: 'The root resource'
           get:
             summary: 'Retrieve the root resource'
+            tags: 
+            - foo
             x-rate-limit: 100
         '/pets':
           get:
             summary: 'Retrieve a list of pets'
+            tags:
+            - pet
             x-rate-limit: 100
       components:
       tags:
