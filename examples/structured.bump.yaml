@@ -23,6 +23,7 @@ paths:
     get:
       tags:
         - pet
+        - pet
       summary: Retrieve a list of pets
       responses:
         '200':
