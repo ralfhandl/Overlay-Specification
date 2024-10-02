@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Structured Overlay Input
+  version: 0.0.0
+  x-overlay-applied: structured-overlay
+paths:
+  /:
+    get:
+      tags:
+        - root
+      summary: Retrieve the root resource
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+      x-rate-limit: 100
+    summary: The root resource
+  /pets:
+    get:
+      tags:
+        - pet
+      summary: Retrieve a list of pets
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+      x-rate-limit: 100
+    post:
+      tags:
+        - pet
+      summary: Add new pet
+      requestBody:
+        description: Update an existent pet in the store
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+components: null
+tags: null
+
