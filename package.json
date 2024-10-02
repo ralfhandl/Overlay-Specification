@@ -39,6 +39,7 @@
   "scripts": {
     "build": "bash ./scripts/md2html/build.sh",
     "bump": "bump overlay examples/structured.openapi.yaml examples/structured.overlay.yaml > examples/structured.bump.yaml",
+    "speakeasy": "speakeasy overlay apply -s examples/structured.openapi.yaml -o examples/structured.overlay.yaml --out examples/structured.speakeasy.yaml",
     "format-markdown": "bash ./scripts/format-markdown.sh ./versions/*.md"
   }
 }
