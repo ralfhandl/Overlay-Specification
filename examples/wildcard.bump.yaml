@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: Structured Overlay Input
+  version: 0.0.0
+paths:
+  /:
+    get:
+      tags:
+        - root
+      summary: Get root resource
+      parameters:
+        filterParam:
+          name: filter
+          in: query
+          description: condition for items to return
+          required: true
+          schema: &ref_0
+            type: string
+            $ref: '#/components/schemas/filterSchema'
+        limitParam:
+          name: limit
+          in: query
+          description: max records to return
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+      x-safe: true
+  /pets:
+    get:
+      tags:
+        - pet
+      summary: Get list of pets
+      parameters:
+        filterParam:
+          name: filter
+          in: query
+          description: condition for items to return
+          required: true
+          schema: *ref_0
+        limitParam:
+          name: limit
+          in: query
+          description: max records to return
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+      x-safe: true
+    post:
+      tags:
+        - pet
+      summary: Add new pet
+      requestBody:
+        description: Update an existent pet in the store
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+
