@@ -15,7 +15,6 @@ paths:
           description: condition for items to return
           required: true
           schema: &ref_0
-            type: string
             $ref: '#/components/schemas/filterSchema'
         limitParam:
           name: limit
@@ -79,4 +78,13 @@ paths:
             application/json:
               schema:
                 type: array
+components:
+  schemas:
+    filterSchema:
+      type: string
+      default: available
+      enum:
+        - available
+        - pending
+        - sold
 

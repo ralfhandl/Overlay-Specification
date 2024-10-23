@@ -37,7 +37,7 @@
     "Swagger"
   ],
   "scripts": {
-    "build": "npm run structured-bump && npm run structured-speakeasy",
+    "build": "npm run structured-bump && npm run structured-speakeasy && npm run wildcard-bump && npm run wildcard-speakeasy",
     "structured-bump": "bump overlay examples/structured.openapi.yaml examples/structured.overlay.yaml > examples/structured.bump.yaml",
     "structured-speakeasy": "speakeasy overlay apply -s examples/structured.openapi.yaml -o examples/structured.overlay.yaml --out examples/structured.speakeasy.yaml",
     "wildcard-bump": "bump overlay examples/wildcard.openapi.yaml examples/wildcard.overlay.yaml > examples/wildcard.bump.yaml",

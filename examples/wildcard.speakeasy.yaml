@@ -79,3 +79,12 @@ paths:
             application/json:
               schema:
                 type: array
+components:
+  schemas:
+    filterSchema:
+      type: string
+      default: available
+      enum:
+        - available
+        - pending
+        - sold

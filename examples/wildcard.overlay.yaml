@@ -6,6 +6,19 @@ actions:
   - target: $.paths.*.get
     update:
       x-safe: true
+  - target: $
+    update:
+      components:
+        schemas:
+          filterSchema:
+            type: string
+            default: available
+            enum:
+              - available
+              - pending
+              - sold
+  - target: $.paths.*.get.parameters[?(@.name=='filter' && @.in=='query')].schema
+    remove: true
   - target: $.paths.*.get.parameters[?(@.name=='filter' && @.in=='query')]
     update:
       schema:
