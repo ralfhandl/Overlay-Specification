@@ -1,4 +1,4 @@
-name: respec
+name: respec-w-app
 
 # author: @MikeRalphson
 # issue: https://github.com/OAI/OpenAPI-Specification/issues/1564
@@ -22,6 +22,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Generate a token
+      id: generate-token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ vars.APP_ID }}
+        private-key: ${{ secrets.APP_PK }}
+
     - uses: actions/checkout@v4 # checkout main branch
       with:
         fetch-depth: 0
@@ -35,8 +42,8 @@ jobs:
 
     - uses: actions/checkout@v4 # checkout gh-pages branch
       with:
-        token: ${{ secrets.OAS_REPO_TOKEN }}
-        repository: OAI/OpenAPI-Specification  # TODO: change to OAI/...
+        token: ${{ steps.generate-token.outputs.token }}
+        repository: ralfhandl/OpenAPI-Specification
         ref: gh-pages
         path: deploy
 
@@ -54,7 +61,7 @@ jobs:
         delete-branch: true
         path: deploy
         labels: Housekeeping
-        team-reviewers: OAI/tsc
+        reviewers: ralfhandl
         title: Update ReSpec-rendered specification versions for Overlay
         commit-message: Update ReSpec-rendered specification versions
         signoff: true
