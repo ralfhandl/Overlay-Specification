@@ -17,7 +17,7 @@ on:
 
 jobs:
   respec:
-    if: github.repository == 'OAI/Overlay-Specification'
+    if: github.repository == 'ralfhandl/Overlay-Specification'
     
     runs-on: ubuntu-latest
 
