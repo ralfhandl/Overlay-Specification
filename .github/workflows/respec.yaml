@@ -32,6 +32,8 @@ jobs:
       with:
         app-id: ${{ vars.APP_ID }}
         private-key: ${{ secrets.APP_PK }}
+        owner: ralfhandl
+        repositories: OpenAPI-Specification
 
     - uses: actions/checkout@v4 # checkout main branch
       with:
