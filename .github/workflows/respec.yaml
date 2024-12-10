@@ -15,10 +15,6 @@ on:
       - main
   workflow_dispatch: {}
 
-# permissions:
-#   contents: write
-#   pull-requests: write
-
 jobs:
   respec:
     if: github.repository == 'ralfhandl/Overlay-Specification'
