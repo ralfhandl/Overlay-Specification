@@ -19,15 +19,19 @@ echo Prepare release of $version
 # create snapshot of current editors
 cp EDITORS.md versions/$version-editors.md
 
+# "move" dev version of spec to release version - git will treat this as a rename
 # Replace release date placeholder with current date - should only appear in the history table
 sed "s/| TBD |/| $today |/g" versions/$version-dev.md > versions/$version.md
 # show what changed in the spec - should only be the history table line for the current release
 diff -Z versions/$version-dev.md versions/$version.md
-# remove development version of spec
+# remove dev version of spec
 rm versions/$version-dev.md
 
-# rename schemas folder if present
+# rename schemas dev folder and tests folder if present
 vMinor=$(echo $vVersion | cut -d. -f1,2)
 if [ -d "schemas/$vMinor-dev" ]; then
   mv "schemas/$vMinor-dev" "schemas/$vMinor"
+fi
+if [ -d "tests/$vMinor-dev" ]; then
+  mv "tests/$vMinor-dev" "tests/$vMinor"
 fi

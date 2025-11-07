@@ -97,6 +97,7 @@ The steps for creating a `vX.Y.Z-rel` branch are:
      - copy file `EDITORS.md` to `versions/X.Y.Z-editors.md`
      - for an X.Y.0 release
        - move folder `schemas/vX.Y-dev` to `schemas/vX.Y`
+       - move folder `tests/vX.Y-dev` to `tests/vX.Y`
 4. Merge `vX.Y.Z-rel` into `main` via pull request
 5. Archive branch `vX.Y.Z-rel`
 
